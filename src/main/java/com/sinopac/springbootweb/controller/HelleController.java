@@ -21,4 +21,5 @@ public class HelleController {
     public String getMappingHello() {
         return "getMapping";
     }
+
 }

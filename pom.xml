@@ -37,6 +37,25 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- jsp引擎,给内嵌的tomcat使用-->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+
+        <!-- jstl-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <!--Freemarker 如果使用的话就添加其坐标-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+
     </dependencies>
 
     <!--maven 打包插件-->
