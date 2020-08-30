@@ -56,6 +56,11 @@
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
+        <!--Thymeleaf 如果使用的话就添加其坐标-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
     </dependencies>
 
     <!--maven 打包插件-->

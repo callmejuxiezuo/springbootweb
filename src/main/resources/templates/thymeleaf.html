@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span>html头标签需要导入xmlns="http://www.w3.org/1999/xhtml" <br/>xmlns:th="http://www.thymeleaf.org"否则会报标签找不到</span>
+    <hr/>
+    <div th:text="使用thtext输出内容"></div><br/>
+    <div th:text="${Thymeleaf}"></div>
+    <input th:value="${Thymeleaf}" ><br/>
+    <hr/>
+    #strings内置对象演示：<br/>
+    是否为空：<span th:text="${#strings.isEmpty(Thymeleaf)}" ></span><br/>
+    是否包含T：<span th:text="${#strings.contains(Thymeleaf, 'T')}" ></span><br/>
+    是否以T开始：<span th:text="${#strings.startsWith(Thymeleaf, 'T')}" ></span><br/>
+    字符串长度：<span th:text="${#strings.length(Thymeleaf)}" ></span><br/>
+    s在字符串的位置：<span th:text="${#strings.indexOf(Thymeleaf, 's')}" ></span><br/>
+    还有其他方法,就不一一演示了，请翻阅文档：<br/>
+    substring(sources,2)/substring(sources,2,6)<br/>
+    toUpperCase(source)/toLowerCase(sources)
+    <hr/>
+    #dates内置对象演示：<br/>
+    浏览器默认格式的日期转换：<span th:text="${date}" ></span><br/>
+    format转化：<span th:text="${#dates.format(date)}" ></span><br/>
+    format指定格式转化：<span th:text="${#dates.format(date,'yyyy-MM-dd')}" ></span><br/>
+    通过format单独取年/月/日：<span th:text="${#dates.year(date)}" ></span>/<span th:text="${#dates.month(date)}" ></span>/<span th:text="${#dates.day(date)}" ></span>
+
+</body>
+</html>
