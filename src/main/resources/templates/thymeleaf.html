@@ -2,14 +2,27 @@
 <html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thymeleaf</title>
 </head>
 <body>
     <span>html头标签需要导入xmlns="http://www.w3.org/1999/xhtml" <br/>xmlns:th="http://www.thymeleaf.org"否则会报标签找不到</span>
     <hr/>
-    <div th:text="使用thtext输出内容"></div><br/>
+    <strong>th:text,th:value,th:if</strong>演示：<br/>
     <div th:text="${Thymeleaf}"></div>
     <input th:value="${Thymeleaf}" ><br/>
+    <div>
+        年龄等于22：
+        <span th:if="${age == '23'}">否</span>
+        <span th:if="${age == '22'}">是</span>
+    </div>
+    <div>
+        <strong>th:switch演示</strong>：<br/>
+        <div th:switch="${age}">
+            <span th:case="22">匹配22</span>
+            <span th:case="23">匹配23</span>
+            <span th:case="*">匹配不到，defalut用*表示</span>
+        </div>
+    </div>
     <hr/>
     #strings内置对象演示：<br/>
     是否为空：<span th:text="${#strings.isEmpty(Thymeleaf)}" ></span><br/>
@@ -26,6 +39,63 @@
     format转化：<span th:text="${#dates.format(date)}" ></span><br/>
     format指定格式转化：<span th:text="${#dates.format(date,'yyyy-MM-dd')}" ></span><br/>
     通过format单独取年/月/日：<span th:text="${#dates.year(date)}" ></span>/<span th:text="${#dates.month(date)}" ></span>/<span th:text="${#dates.day(date)}" ></span>
-
+    <hr/>
+    迭代遍历th:each演示<br/>
+    <table border="1px;">
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <!--迭代器状态变量演示-->
+            <td>index</td>
+            <td>count</td>
+            <td>size</td>
+            <td>odd</td>
+            <td>even</td>
+            <td>first</td>
+            <td>last</td>
+        </tr>
+        <tr th:each="users, status : ${usersList}">
+            <td th:text="${users.userName}"></td>
+            <td th:text="${users.age}"></td>
+            <td th:text="${status.index}"></td>
+            <td th:text="${status.count}"></td>
+            <td th:text="${status.size}"></td>
+            <td th:text="${status.odd}"></td>
+            <td th:text="${status.even}"></td>
+            <td th:text="${status.first}"></td>
+            <td th:text="${status.last}"></td>
+        </tr>
+    </table>
+    <hr/>
+    迭代遍历Map演示<br/>
+    <table border="1px;">
+        <tr>
+            <td>姓名Key</td>
+            <td>姓名Value</td>
+            <td>年龄Key</td>
+            <td>年龄Value</td>
+            <!--迭代器Map状态变量演示-->
+        </tr>
+        <tr th:each="userMap: ${userMap}">
+            <td th:text="${userMap.key}"></td>
+            <td th:text="${userMap.value.userName}"></td>
+            <td th:text="${userMap.key}"></td>
+            <td th:text="${userMap.value.age}"></td>
+        </tr>
+    </table>
+    <hr/>
+    request/session/servletContext域对象取值演示<br/>
+    HttpServletRequest两种内置对象取值方式:
+    <span th:text="${#request.getAttribute('request')}"></span> or
+    <span th:text="${#httpServletRequest.getAttribute('request')}"></span><br/>
+    HttpSession内置对象取值：<span th:text="${#httpSession.getAttribute('session')}"></span><br>
+    HttpSession属性对象取值：<span th:text="${session.session}"></span><br>
+    ServletContext内置对象取值：<span th:text="${#servletContext.getAttribute('servletContext')}"></span><br>
+    ServletContext属性对象取值：<span th:text="${application.servletContext}"></span><br>
+    <hr/>
+    URL演示<br/>
+    绝对路径：<a th:href="@{http://www.baidu.com}">百度</a><br>
+    相对于当前项目的根:<a th:href="@{'/freemarker'}">freemarker</a><br>
+    相对于服务器的根:<a th:href="@{'~/freemarker'}">用~切换项目</a><br>
 </body>
 </html>
