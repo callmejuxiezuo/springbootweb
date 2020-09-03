@@ -4,6 +4,7 @@ import com.sinopac.springbootweb.pojo.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
@@ -15,7 +16,7 @@ import java.util.*;
 @Controller
 public class ThymeleafController {
     @GetMapping("/thymeleaf")
-    public  String showThymeleaf(Model model, HttpServletRequest request) {
+    public  String showThymeleaf(Model model, HttpServletRequest request, String id, String name) {
         model.addAttribute("Thymeleaf", "showThymeleaf");
         model.addAttribute("date", new Date());
         model.addAttribute("age", "22");
@@ -42,6 +43,20 @@ public class ThymeleafController {
         request.getSession().setAttribute("session", "session");
         request.getSession().getServletContext().setAttribute("servletContext", "servletContext");
 
+        System.out.println("id=" + id +"******name=" + name);
+        System.out.println("age=" + id +"******Thymeleaf=" + name);
         return "thymeleaf";
+    }
+
+    @GetMapping("/restful/{id}/{name}")
+    public String showThymeleaf(@PathVariable String id, @PathVariable String name) {
+        System.out.println("id=" + id +"******restful+ name=" + name );
+        return "index";
+    }
+
+    @GetMapping("/restful/{id}")
+    public String showThymeleaf2(@PathVariable String id, String name) {
+        System.out.println("id=" + id +"******restful2+ name=" + name );
+        return "index";
     }
 }

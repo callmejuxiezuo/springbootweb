@@ -97,5 +97,16 @@
     绝对路径：<a th:href="@{http://www.baidu.com}">百度</a><br>
     相对于当前项目的根:<a th:href="@{'/freemarker'}">freemarker</a><br>
     相对于服务器的根:<a th:href="@{'~/freemarker'}">用~切换项目</a><br>
+    URL传递参数演示<br/>
+    <a th:href="@{/thymeleaf?id=2&name=wo}">普通URL传递一</a><br/>
+    <a th:href="@{/'thymeleaf?id=' + ${id} + '&name=' + ${name}}">普通URL动态传递一</a><br/>
+    <a th:href="@{/thymeleaf(id=2,name=wo)}">普通URL传递二</a><br/>
+    <a th:href="@{/thymeleaf(id=${id},name=${name})}">普通URL动态传递二</a><br/>
+
+    <!--Restful-->
+    <a th:href="@{/restful/{id}(id=2)}">Restful-URL传递一</a><br/>
+    <a th:href="@{/restful/{id}/{name}(id=2,name=wo)}">Restful-URL传递二</a><br/>
+    <a th:href="@{/restful/{id}(id=2,name=wo)}">Restful-URL传递三</a><br/>
+    <a th:href="@{/restful/{id}(id=${id},name=${name})}">Restful-URL动态传递一</a><br/>
 </body>
 </html>
