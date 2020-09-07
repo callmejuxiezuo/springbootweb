@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 /**
  * 功能描述:jdbc配置类<br>
@@ -80,7 +81,7 @@ public class JdbcConfig {
      */
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource4() {
+    public DataSource dataSource4() throws SQLException {
         this.dataSource().getConnection();
         DruidDataSource dataSource = new DruidDataSource();
         return dataSource;

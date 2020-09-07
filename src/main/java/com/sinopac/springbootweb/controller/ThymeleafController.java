@@ -1,10 +1,10 @@
 package com.sinopac.springbootweb.controller;
 
-import com.sinopac.springbootweb.pojo.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import pojo.Users;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;

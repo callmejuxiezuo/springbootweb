@@ -1,7 +1,12 @@
-package com.sinopac.springbootweb.pojo;
+package pojo;
 
 
-public class Users {
+import java.io.Serializable;
+
+/**
+ * Users 对象
+ */
+public class Users implements Serializable {
     private String userName;
     private Integer age;
 
