@@ -24,5 +24,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void insertUser(Users users) {
         String sql = "insert into user(username, age) values(?, ?)";
+        jdbcTemplate.update(sql, users.getUserName(), users.getAge());
     }
 }

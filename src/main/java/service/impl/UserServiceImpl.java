@@ -1,6 +1,9 @@
 package service.impl;
 
+import dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pojo.Users;
 import service.UserService;
 
@@ -12,8 +15,13 @@ import service.UserService;
  */
 @Service
 public class UserServiceImpl implements UserService {
-    @Override
-    public void addUser(Users user) {
 
+    @Autowired
+    private UserDao userDao;
+
+    @Override
+    @Transactional
+    public void addUser(Users user) {
+        this.userDao.insertUser(user);
     }
 }
