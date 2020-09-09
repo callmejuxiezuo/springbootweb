@@ -1,7 +1,7 @@
-package mapper;
+package com.sinopac.springbootweb.mapper;
 
+import com.sinopac.springbootweb.pojo.Users;
 import org.springframework.stereotype.Repository;
-import pojo.Users;
 
 /**
  * 功能描述:<br>

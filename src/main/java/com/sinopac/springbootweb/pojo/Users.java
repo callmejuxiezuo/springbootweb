@@ -1,4 +1,4 @@
-package pojo;
+package com.sinopac.springbootweb.pojo;
 
 
 import java.io.Serializable;

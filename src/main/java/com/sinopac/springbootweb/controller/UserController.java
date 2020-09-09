@@ -1,11 +1,17 @@
 package com.sinopac.springbootweb.controller;
 
+import com.sinopac.springbootweb.pojo.Users;
+import com.sinopac.springbootweb.service.UserService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pojo.Users;
-import service.UserService;
+
+import java.util.List;
+
 
 /**
  * 功能描述:<br>
@@ -34,5 +40,12 @@ public class UserController {
 
         // 重定向
         return "redirect:/successful";
+    }
+
+    @GetMapping("/getAllUsers")
+    public String queryAllUsers(Model model) {
+        List<Users> usersList = this.userService.queryAllUser();
+        model.addAttribute("userList", usersList);
+        return "queryAllUser";
     }
 }
