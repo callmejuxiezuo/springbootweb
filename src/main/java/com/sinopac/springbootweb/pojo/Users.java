@@ -1,6 +1,7 @@
 package com.sinopac.springbootweb.pojo;
 
 
+
 import com.sun.istack.internal.NotNull;
 
 import java.io.Serializable;
@@ -13,7 +14,10 @@ public class Users implements Serializable {
 //    @NotEmpty // 集合类型
 
     private String userName;
-    @NotNull //基本数据的对象做控制
+
+//    @NotNull(message="xxxx") //基本数据的对象做控制
+//    @NotNull(message="{user.age.is.not,null}") // 映射 ValidationMessages.properties
+
     private Integer age;
 
     public String getUserName() {
