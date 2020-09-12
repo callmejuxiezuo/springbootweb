@@ -8,3 +8,9 @@ spring:
     data-password: root
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  #指定映射文件路径
+  mapper-locations: clsspath:/myresouces/mapper/*.xml
+  #给包起别名
+  #type-aliases-package:
