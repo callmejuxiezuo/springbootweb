@@ -30,6 +30,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <!--不需要junit3/4的运行平台-->
             <exclusions>
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
