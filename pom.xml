@@ -118,6 +118,25 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <!--加载非resources目录下的配置文件,一旦配置该插件，默认配置读取将失效，需自行在配置-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>
