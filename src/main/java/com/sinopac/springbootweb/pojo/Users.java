@@ -18,6 +18,8 @@ public class Users implements Serializable {
 //    @NotNull(message="xxxx") //基本数据的对象做控制
 //    @NotNull(message="{user.age.is.not,null}") // 映射 ValidationMessages.properties
 
+    // @Length  @Min  @Max  @Email
+
     private Integer age;
 
     public String getUserName() {

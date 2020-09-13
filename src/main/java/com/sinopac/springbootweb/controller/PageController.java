@@ -2,6 +2,7 @@ package com.sinopac.springbootweb.controller;
 
 import com.sinopac.springbootweb.pojo.Users;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,7 +25,7 @@ public class PageController {
      * @return
      */
     @RequestMapping("/{page}")
-    public String showPage2(@PathVariable String page, Users users){
+    public String showPage2(@PathVariable String page, Users users){//通过 @ModelAttribute("XX")改变页面users的key名
 
         return page;
     }

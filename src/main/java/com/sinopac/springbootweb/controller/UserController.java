@@ -2,10 +2,12 @@ package com.sinopac.springbootweb.controller;
 
 import com.sinopac.springbootweb.pojo.Users;
 import com.sinopac.springbootweb.service.UserService;
+import com.sun.istack.internal.NotNull;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,7 @@ import java.util.List;
  */
 
 @Controller
+@Validated //数据校验
 @RequestMapping("/user")
 public class UserController {
 
@@ -43,7 +46,7 @@ public class UserController {
     }
 
     @GetMapping("/getAllUsers")
-    public String queryAllUsers(Model model) {
+    public String queryAllUsers(Model model, @NotNull Integer age) {// @NotNull(message="年龄不能为空"
         List<Users> usersList = this.userService.queryAllUser();
         model.addAttribute("userList", usersList);
         return "queryAllUser";
