@@ -87,6 +87,12 @@
             <version>2.1.1</version>
         </dependency>
 
+        <!--通过DevTool进行热部署-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <!--maven 打包插件-->
