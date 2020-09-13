@@ -1,5 +1,6 @@
 package com.sinopac.springbootweb;
 
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +14,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication
 @ServletComponentScan //扫描@WebServlet/WebFilter/@WebListener，实列化之
 @MapperScan("com.sinopac.springbootweb.mapper") // 扫描mapper包下的接口与映射
+//EnableAdminServer // 可视化服务端开启
 public class SpringbootwebApplication {
 
     public static void main(String[] args) {
