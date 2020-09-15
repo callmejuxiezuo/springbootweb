@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--MyBatis 真正的力量是在映射语句中。这里是奇迹发生的地方。
+    对于所有的力量,SQL 映射的 XML 文件是相当的简单。
+    当然如果你将它们和对等功能的 JDBC 代码来比较,你会发现映射文件节省了大约 95%的代码量。
+    MyBatis 的构建就是聚焦于 SQL 的,使其远离于普通的方式。
+-->
+
+<!--namespace为全限定名，使用该映射文件中配置的已映射的sql语句时，最好加上全限定名，不然可能会造成语句模糊。-->
+<mapper namespace="org.wm.mapper.TransferMapper">
+
+    <!--
+        sql – 可以重用的 SQL 块,也可以被其他语句引用。
+        insert – 映射插入语句
+        update – 映射更新语句
+        delete – 映射删除语句
+        select – 映射查询语句
+
+        当传入参数为在sql语句标记为#{x}时，系统底层默认走的是PreparedStatement
+        当传入参数为在sql语句标记为${x}时，系统底层默认走的是Statement
+        参数也可以指定一个确定的数据类型：
+            #{property,javaType=int,jdbcType=NUMERIC}
+
+        insert、update、delete使用的套路基本一致，返回值都为Integer类型
+        select需要指定返回值类型
+        sql
+        这个元素可以被用来定义可重用的 SQL 代码段,可以包含在其他语句中。
+            <sql id="userColumns"> id,username,password </sql>
+            <select id="selectUsers" parameterType="int" resultType="hashmap">
+              select <include refid="userColumns"/>
+              from some_table
+              where id = #{id}
+            </select>
+    -->
+
+    <select id="selByIdPwd" parameterType="account" resultType="account">
+        select * from account where aid=#{aid} and pwd=#{pwd}
+    </select>
+    <select id="selByIdName" parameterType="account" resultType="account">
+        select * from account where aid=#{aid} and aname=#{aname}
+    </select>
+
+    <update id="updAcc" parameterType="account">
+        update account set money=money+#{money} where aid=#{aid}
+    </update>
+
+</mapper>
