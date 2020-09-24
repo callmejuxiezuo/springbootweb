@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--springboot已经集成自动装配，此文件只是mybatis模板，其他项目可能使用得到-->
+<configuration>
+    <!--配置不同链接环境-->
+    <environments default=""> <!--default 当前使用的环境-->
+        <!--声明可能使用的环境-->
+        <environment id="oracle">
+            <!--使用JDBC事物管理-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--使用连接池技术-->
+            <dataSource type="POOLED">
+                <property name="url" value=""/>
+                <property name="username" value=""/>
+                <property name="password" value=""/>
+                <property name="driver" value=""/>
+            </dataSource>
+        </environment>
+        <environment id="mysql">
+            <!--使用第三方事物管理，如Spring-->
+            <transactionManager type="MANAGED"></transactionManager>
+            <dataSource type=""></dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="classpath:/myresources/mapper/UserMapper.xml">
+    </mappers>
+</configuration>

@@ -10,7 +10,7 @@
 -->
 
 <!--namespace为全限定名，使用该映射文件中配置的已映射的sql语句时，最好加上全限定名，不然可能会造成语句模糊。-->
-<mapper namespace="org.wm.mapper.TransferMapper">
+<mapper namespace="com.sinopac.springbootweb.pojo.Users">
 
     <!--
         sql – 可以重用的 SQL 块,也可以被其他语句引用。
@@ -34,9 +34,11 @@
               from some_table
               where id = #{id}
             </select>
+
+            xxxType最好写包全路径，当然也可以定义别名
     -->
 
-    <select id="selByIdPwd" parameterType="account" resultType="account">
+    <select id="selByIdPwd" parameterType="account" parameterMap="" resultMap="" resultType="account">
         select * from account where aid=#{aid} and pwd=#{pwd}
     </select>
     <select id="selByIdName" parameterType="account" resultType="account">
